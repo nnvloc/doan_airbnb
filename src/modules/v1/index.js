@@ -4,14 +4,18 @@ import secretAuth from '@middlewares/secretAuth';
 
 import userRoutes from './users';
 import AuthRoutes from './authenticate';
-import restaurantRoutes from './restaurants';
-import orderRoutes from './orders';
+import phongRoutes from './phongs';
+import vitriRoutes from './vi_tri';
+import datPhongRoutes from './dat_phong';
+import binhLuanRoutes from './binh_luan';
 
 const router = new Router();
 
-router.use('/', AuthRoutes);
+router.use('/auth', AuthRoutes);
 router.use('/users', userRoutes);
-router.use('/restaurants', restaurantRoutes);
-router.use('/orders', orderRoutes);
+router.use('/phongs', phongRoutes);
+router.use('/vi-tri', vitriRoutes);
+router.use('/dat-phongs', datPhongRoutes);
+router.use('/binh-luans', binhLuanRoutes);
 
 export default router;

@@ -1,43 +1,35 @@
 'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
+    /**
+     * Add altering commands here.
+     *
+     * Example:
+     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
+     */
+    await queryInterface.createTable('Binh_Luans', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      password: {
-        type: Sequelize.STRING,
+      ma_nguoi_binh_luan: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
-      name: {
-        type: Sequelize.STRING,
+      ma_phong: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
-      phone: {
+      noi_dung: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      dob: {
+      sao_binh_luan: {
         type: Sequelize.DATE,
-        allowNull: true,
-      },
-      gender: {
-        type: Sequelize.STRING,
         allowNull: false,
-        default: 'Male',
-      },
-      role: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        default: 'user'
       },
       created_at: {
         allowNull: false,
@@ -49,7 +41,14 @@ module.exports = {
       },
     });
   },
+
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
+    await queryInterface.dropTable('Binh_Luans');
   }
 };

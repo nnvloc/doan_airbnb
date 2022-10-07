@@ -46,9 +46,6 @@ app.use(
 );
 
 app.use('/api/v1', appRoutes);
-// app.use('/api/v1', publicRoutes);
-// app.use('/api/v1', passportJWT.authenticate('jwt', { session: false }), secureRoutes);
-// app.use('/api/admin', passportJWT.authenticate('jwt', { session: false }), adminValidatorMiddleware, adminRoutes);
 
 // Init swagger url for API documents
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -56,6 +53,7 @@ app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Error handling
 app.use((err, req, res, next) => {
 	if (process.env.NODE_ENV === 'development') {
+		console.log(err);
 		AppLogger.error(err.message, err);
   }
   

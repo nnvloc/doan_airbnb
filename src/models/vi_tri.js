@@ -1,9 +1,10 @@
+import bcrypt from 'bcrypt';
 'use strict';
 const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Orders extends Model {
+  class ViTris extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,36 +12,44 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Users, { foreignKey: 'user_id', as: 'user' });
-      this.belongsTo(models.Restaurants, { foreignKey: 'res_id', as: 'restaurant' });
+      this.hasMany(models.Phongs, { foreignKey: 'vi_tri', as: 'phongs' });
     }
   };
-  Orders.init({
-    user_id: {
-      type: DataTypes.INTEGER,
+  ViTris.init({
+    id: {
       allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
     },
-    food_id: {
-      type: DataTypes.INTEGER,
+    ten: {
+      type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
-    amount: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    code: {
+    tinh: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    arr_sub_id: {
+    quoc_gia: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    hinh_anh: {
       type: DataTypes.STRING,
       allowNull: true,
-    }
+    },
+    createdAt: {
+      field: 'created_at',
+      type: DataTypes.DATE,
+    },
+    updatedAt: {
+      field: 'updated_at',
+      type: DataTypes.DATE,
+    },
   }, {
     sequelize,
-    modelName: 'orders',
-    createdAt: false,
-    updatedAt: false,
+    modelName: 'Vi_tris',
   });
-  return Orders;
+  return ViTris;
 };

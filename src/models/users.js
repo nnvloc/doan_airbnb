@@ -12,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Dat_Phongs, { foreignKey: 'ma_nguoi_dat', as: 'datPhongs' });
+      this.hasMany(models.Binh_Luans, { foreignKey: 'ma_nguoi_binh_luan', as: 'binhLuans' });
     }
 
     isValidPassword(password) {
@@ -34,18 +36,39 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    full_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    dob: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      default: 'Male',
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      default: 'user'
     },
     createdAt: {
       field: 'created_at',
       type: DataTypes.DATE,
     },
+    updatedAt: {
+      field: 'updated_at',
+      type: DataTypes.DATE,
+    },
   }, {
     sequelize,
     modelName: 'Users',
-    updatedAt: false,
   });
   return Users;
 };

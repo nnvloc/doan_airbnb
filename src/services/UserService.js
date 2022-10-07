@@ -5,15 +5,15 @@ class UserService {
     this.UserModel = Models.Users;
   }
 
-  getUsers(filters = {}) {
+  async getUsers(filters = {}) {
     return this.UserModel.findAll(filters);
   }
 
-  createUser(userParams) {
+  async createUser(userParams) {
     return this.UserModel.create(userParams);
   }
 
-  getUserByEmail(email) {
+  async getUserByEmail(email) {
     return this.UserModel.findOne({
       where: {
         email: email,
@@ -21,10 +21,18 @@ class UserService {
     });
   }
 
-  getUserById(userId) {
+  async getUserById(userId) {
     return this.UserModel.findOne({
       where: {
         id: userId
+      }
+    });
+  }
+
+  async removeUser(id) {
+    return this.UserModel.destroy({
+      where: {
+        id
       }
     });
   }

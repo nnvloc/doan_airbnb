@@ -1,43 +1,40 @@
 'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
+    /**
+     * Add altering commands here.
+     *
+     * Example:
+     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
+     */
+
+    await queryInterface.createTable('Dat_Phongs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      password: {
-        type: Sequelize.STRING,
+      ma_nguoi_dat: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
-      name: {
-        type: Sequelize.STRING,
+      ma_phong: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
-      phone: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      dob: {
+      ngay_den: {
         type: Sequelize.DATE,
-        allowNull: true,
-      },
-      gender: {
-        type: Sequelize.STRING,
         allowNull: false,
-        default: 'Male',
       },
-      role: {
-        type: Sequelize.STRING,
+      ngay_di: {
+        type: Sequelize.DATE,
         allowNull: false,
-        default: 'user'
+      },
+      so_luong_khach: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       created_at: {
         allowNull: false,
@@ -49,7 +46,14 @@ module.exports = {
       },
     });
   },
+
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
+    await queryInterface.dropTable('Dat_Phongs');
   }
 };

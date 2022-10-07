@@ -3,36 +3,35 @@ import trycatchWrapper from '@utils/trycatchWrapper';
 import Controller from './controller';
 
 import passportJWT from '@middlewares/passportjwt';
+import AdminValidate from '@middlewares/adminValidate';
 import MulterInstance from '@services/Uploader/multer';
 
 
 const router = new Router();
 
-router.get('/profile', trycatchWrapper((req, res, next) => {
+router.get('/', passportJWT.authenticate('jwt', { session: false }), AdminValidate, trycatchWrapper((req, res, next) => {
+  return Controller.getUsers(req, res, next);
+}))
+
+router.get('/profile', passportJWT.authenticate('jwt', { session: false }), trycatchWrapper((req, res, next) => {
   return Controller.getProfile(req, res, next);
 }));
 
 router.put(
   '/profile',
   MulterInstance.single('avatar'),
+  passportJWT.authenticate('jwt', { session: false }),
   trycatchWrapper((req, res, next) => {
     return Controller.updateProfile(req, res, next);
   })
-)
+);
 
-router.post('/test-email', trycatchWrapper((req, res, next) => {
-  return Controller.testSendEmail(req, res, next);
+router.get('/:id', passportJWT.authenticate('jwt', { session: false }), AdminValidate, trycatchWrapper((req, res, next) => {
+  return Controller.getUserById(req, res, next);
 }));
 
-router.post('/test-notification', trycatchWrapper((req, res, next) => {
-  return Controller.testNotification(req, res, next);
-}));
+router.delete('/:id', passportJWT.authenticate('jwt', { session: false }), AdminValidate, trycatchWrapper((req, res, next) => {
+  return Controller.removeUserById(req, res, next);
+}))
 
-router.get('/likes', passportJWT.authenticate('jwt', { session: false }), trycatchWrapper((req, res, next) => {
-  return Controller.getMyLikes(req, res, next);
-}));
-
-router.get('/rates', passportJWT.authenticate('jwt', { session: false }), trycatchWrapper((req, res, next) => {
-  return Controller.getMyRates(req, res, next);
-}));
 export default router;

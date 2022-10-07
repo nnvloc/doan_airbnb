@@ -3,19 +3,19 @@ import AuthService from './authService';
 import EmailService from './EmailService';
 import NotificationService from './Notification';
 import FileUploadService from './Uploader';
-import RestaurantService from './RestaurantService';
-import LikeRestaurantService from './LikeRestaurantService';
-import RateRestaurantService from './RateRestaurantService';
-import OrderService from './OrderService';
+import PhongService from './PhongService';
+import ViTriService from './ViTriService';
+import DatPhongService from './DatPhongService';
+import BinhLuanService from './BinhLuanService';
 
 export {
   UserService,
   AuthService,
   EmailService,
-  OrderService,
-  RestaurantService,
   FileUploadService,
   NotificationService,
-  LikeRestaurantService,
-  RateRestaurantService,
+  PhongService,
+  ViTriService,
+  DatPhongService,
+  BinhLuanService,
 }

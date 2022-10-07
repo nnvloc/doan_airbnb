@@ -4,9 +4,9 @@ import { sendResponse } from '@utils/response';
 
 class AuthnticateController {
   async signUp(req, res, next) {
-    const { email, password, full_name } = req.body;
+    const { email, password, name, dob, gender, phone, role } = req.body;
 
-    if (!email || !password || !full_name) {
+    if (!email || !password || !name || !dob || !phone) {
       throw new Error('Missing required params');
     }
 
@@ -19,8 +19,12 @@ class AuthnticateController {
     const cryptedPassword = await bcrypt.hash(password.toString(), 10);
     const createdUser = await UserService.createUser({
       email,
-      full_name,
+      name,
       password: cryptedPassword,
+      dob,
+      gender,
+      phone,
+      role
     });
 
     return sendResponse(res, {user: createdUser});
