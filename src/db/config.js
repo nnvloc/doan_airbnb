@@ -33,6 +33,6 @@ module.exports =  {
     "port": DB_PORT || '3306',
     "dialect": DB_DIALECT || 'mysql',
     "logging": false,
-    "use_env_variable": false
+    "use_env_variable": 'DB_URL',
   },
 }
