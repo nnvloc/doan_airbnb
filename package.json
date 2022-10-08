@@ -25,6 +25,7 @@
     "@logs": "logs"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "@aws-sdk/client-s3": "^3.18.0",
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.4",
@@ -53,6 +54,5 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0"
   }
 }
