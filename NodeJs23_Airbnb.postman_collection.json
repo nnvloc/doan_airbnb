@@ -1,0 +1,994 @@
+{
+	"info": {
+		"_postman_id": "ab75744e-d3fc-4b99-97e3-580916c83593",
+		"name": "NodeJs23_Airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15680914"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"nnvloc@gmail.com\",\n    \"password\": \"123456\",\n    \"name\": \"Loc Nguyen\",\n    \"phone\": \"123456789\",\n    \"dob\": \"2022-10-06T07:26:29.920Z\",\n    \"gender\": \"Male\",\n    \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/auth/sign-up",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"nnvloc@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1MDYyODU2fQ.jJeZkD-mRAy-272RenehONf46m9YEPOvIzhOwkSubOA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/users/profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1MDYyODU2fQ.jJeZkD-mRAy-272RenehONf46m9YEPOvIzhOwkSubOA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Loc Nguyen User\",\n    \"phone\": \"123456789\",\n    \"gender\": \"Male\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/users/profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin list users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin get user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/users/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin remove user by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/users/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin list users with search by name and pagination",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/users?name=loc&page=1&limit=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "loc"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Phongs",
+			"item": [
+				{
+					"name": "Admin Create Room",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten_phong\": \"Room test 1\",\n    \"khach\": 4,\n    \"phong_ngu\": 2,\n    \"giuong\": 3,\n    \"phong_tam\": 2,\n    \"gia_tien\": 3500000,\n    \"vi_tri\": 1,\n    \"hinh_anh\": \"https://laz-img-sg.alicdn.com/p/3051b9ce49b872d9d6f6e1deee24e0f7.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/phongs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"phongs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get rooms",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten_phong\": \"Room test 21\",\n    \"khach\": 4,\n    \"phong_ngu\": 2,\n    \"giuong\": 3,\n    \"phong_tam\": 2,\n    \"gia_tien\": 3500000,\n    \"vi_tri\": 1,\n    \"hinh_anh\": \"https://laz-img-sg.alicdn.com/p/3051b9ce49b872d9d6f6e1deee24e0f7.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/phongs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"phongs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get rooms with search by keyword and pagination",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten_phong\": \"Room test 21\",\n    \"khach\": 4,\n    \"phong_ngu\": 2,\n    \"giuong\": 3,\n    \"phong_tam\": 2,\n    \"gia_tien\": 3500000,\n    \"vi_tri\": 1,\n    \"hinh_anh\": \"https://laz-img-sg.alicdn.com/p/3051b9ce49b872d9d6f6e1deee24e0f7.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/phongs?keyword=test&page=1&limit=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"phongs"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "test"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get room by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten_phong\": \"Room test 21\",\n    \"khach\": 4,\n    \"phong_ngu\": 2,\n    \"giuong\": 3,\n    \"phong_tam\": 2,\n    \"gia_tien\": 3500000,\n    \"vi_tri\": 1,\n    \"hinh_anh\": \"https://laz-img-sg.alicdn.com/p/3051b9ce49b872d9d6f6e1deee24e0f7.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/phongs/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"phongs",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get room by vi tri id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten_phong\": \"Room test 21\",\n    \"khach\": 4,\n    \"phong_ngu\": 2,\n    \"giuong\": 3,\n    \"phong_tam\": 2,\n    \"gia_tien\": 3500000,\n    \"vi_tri\": 1,\n    \"hinh_anh\": \"https://laz-img-sg.alicdn.com/p/3051b9ce49b872d9d6f6e1deee24e0f7.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/phongs/by-vi-tri/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"phongs",
+								"by-vi-tri",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Update room",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten_phong\": \"Room test 21\",\n    \"khach\": 4,\n    \"phong_ngu\": 2,\n    \"giuong\": 3,\n    \"phong_tam\": 2,\n    \"gia_tien\": 3500000,\n    \"vi_tri\": 1,\n    \"wifi\": true,\n    \"dieu_hoa\": true,\n    \"tivi\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/phongs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"phongs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vi tri",
+			"item": [
+				{
+					"name": "Admin Create Vi tri",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDQzMDA4fQ.2cMeCD8qxTdFkQbforWH8LqzWX4QjVu_85Rg2rQbwYA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten\": \"Vi tri 2\",\n    \"tinh\": \"HCM\",\n    \"quoc_gia\": \"VN\",\n    \"hinh_anh\": \"https://laz-img-sg.alicdn.com/p/3051b9ce49b872d9d6f6e1deee24e0f7.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/vi-tri",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vi-tri"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get vi tri",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/vi-tri",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vi-tri"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get vi tri by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/vi-tri/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vi-tri",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Update vi tri by id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDYxMjc3fQ.VxzaaYZmD2A6puf6CQXe4WZHSmgDyQ3l_Uf3EJw4X-Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten\": \"Vi tri updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/vi-tri/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vi-tri",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Remove vi tri by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDYxMjc3fQ.VxzaaYZmD2A6puf6CQXe4WZHSmgDyQ3l_Uf3EJw4X-Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten\": \"Vi tri updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/vi-tri/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vi-tri",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter and Pagination",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjY1MDYxMjc3fQ.VxzaaYZmD2A6puf6CQXe4WZHSmgDyQ3l_Uf3EJw4X-Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ten\": \"Vi tri updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/vi-tri/phan-trang-tim-kiem?page=1&limit=1&keyword=testing",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vi-tri",
+								"phan-trang-tim-kiem"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "keyword",
+									"value": "testing"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dat Phong",
+			"item": [
+				{
+					"name": "Create dat phong",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1MDYyODU2fQ.jJeZkD-mRAy-272RenehONf46m9YEPOvIzhOwkSubOA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ma_phong\": 1,\n    \"so_luong_khach\": 3,\n    \"ngay_den\": \"2022-10-06T07:26:29.920Z\",\n    \"ngay_di\": \"2022-10-08T07:26:29.920Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/dat-phongs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dat-phongs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get dat phongs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/dat-phongs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dat-phongs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get dat phong by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/dat-phongs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dat-phongs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get dat phong by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/dat-phongs/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dat-phongs",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove dat phong",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1MDYyODU2fQ.jJeZkD-mRAy-272RenehONf46m9YEPOvIzhOwkSubOA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/dat-phongs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dat-phongs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update dat phong",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1MDYyODU2fQ.jJeZkD-mRAy-272RenehONf46m9YEPOvIzhOwkSubOA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ma_phong\": 1,\n    \"so_luong_khach\": 2,\n    \"ngay_den\": \"2022-10-07T07:26:29.920Z\",\n    \"ngay_di\": \"2022-10-08T07:26:29.920Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/dat-phongs/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dat-phongs",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BinhLuan",
+			"item": [
+				{
+					"name": "Create binh luan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1MDYyODU2fQ.jJeZkD-mRAy-272RenehONf46m9YEPOvIzhOwkSubOA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ma_phong\": 1,\n    \"sao_binh_luan\": 5,\n    \"noi_dung\": \"This is a review for room 1 again\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/binh-luans",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"binh-luans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get binh luan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/binh-luans",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"binh-luans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get binh luan by roomId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/binh-luans/rooms/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"binh-luans",
+								"rooms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Xoa binh luan",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1MDYyODU2fQ.jJeZkD-mRAy-272RenehONf46m9YEPOvIzhOwkSubOA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/binh-luans/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"binh-luans",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update binh luan",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY1MDYyODU2fQ.jJeZkD-mRAy-272RenehONf46m9YEPOvIzhOwkSubOA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ma_phong\": 1,\n    \"sao_binh_luan\": 5,\n    \"noi_dung\": \"This is a review for room 1 again updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/binh-luans/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"binh-luans",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
